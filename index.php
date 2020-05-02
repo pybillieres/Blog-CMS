@@ -1,7 +1,7 @@
 <?php //ROUTEUR
 require('controller/postController.php');
 require('model/Autoloader.php');
-Autoloader::register();
+Autoloader::register(); //suffisant de le charger une seule fois ?
 
 
 if(isset($_GET['action']))
