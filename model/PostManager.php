@@ -1,4 +1,8 @@
 <?php
+
+namespace Pierre\P4\Model;
+use Pierre\P4\framework\Manager;
+
 class PostManager extends Manager
 {
     public function createPost($title, $content, $date)
@@ -18,6 +22,7 @@ class PostManager extends Manager
         while($row = $req->fetch())
         {
             $post = new Post($row);
+            echo 'toto';
         }
         return $post;
     }
