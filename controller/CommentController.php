@@ -1,9 +1,10 @@
 <?php
 namespace Pierre\P4\controller;
 use Pierre\P4\Model\CommentManager;
+use Pierre\P4\Framework\Controller;
 
 
-class CommentController
+class CommentController extends Controller
 {
     function listComment($postId)
     {

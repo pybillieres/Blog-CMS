@@ -2,15 +2,23 @@
 
 namespace Pierre\P4\controller;
 use Pierre\P4\controller\CommentController;
+use Pierre\P4\Framework\Controller;
 use Pierre\P4\model\PostManager;
 use Pierre\P4\model\View;
 
 
-Class PostController
+Class PostController extends Controller
 {
-function post($id)
+
+function index()
+{
+    $this->listposts();
+}
+
+function post()
 {
     $postManager = new PostManager;
+    $id=$this->request->Parameter('id');
     $post = $postManager->readPost($id);
     $commentController = new CommentController;
     $comments = $commentController->listComment($id);

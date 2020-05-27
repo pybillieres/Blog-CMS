@@ -1,11 +1,16 @@
 <?php
 namespace Pierre\P4\Controller;
 use Pierre\P4\model\View;
+use Pierre\P4\Framework\Controller;
 
-class ConnectionController
+class ConnectionController extends Controller
 {
+    function index()
+    {
+        $this->Connection();
+    }
 
-    function ConnectionView()
+    function Connection()
     {
         $view = new View;
         $view->render('ConnectionView');
