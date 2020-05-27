@@ -2,6 +2,7 @@
 <?php $this->_title = "Accueil"; ?>
 
 <h1>Blog</h1>
+<a href="index.php?action=connection">connexion</a>
 <?php
 foreach ($posts as $post)
 {
