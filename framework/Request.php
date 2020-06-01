@@ -8,20 +8,20 @@ class Request {
   
     public function __construct($parameters) 
     {
-      $this->parameters = $parameters;
+      $this->parameters = $parameters;//array_merge GET POST
     }
   
-    // Renvoie vrai si le paramètre existe dans la requête
+
     public function existParameter($name) {
       return (isset($this->parameters[$name]) && $this->parameters[$name] != "");
     }
   
-    // Renvoie la valeur du paramètre demandé
+
     public function Parameter($name) {
       if ($this->existParameter($name)) {
         return $this->parameters[$name];
       }
       else //paramètre introuvable
-        throw new \Exception("Paramètre '$name' absent de la requête");
+        throw new \Exception;
     }
   }

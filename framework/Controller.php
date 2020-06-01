@@ -11,7 +11,6 @@ abstract class Controller
  // Requête entrante
  protected $request;
 
- // Définit la requête entrante
  public function setRequest(Request $request) {
    $this->request = $request;
  }

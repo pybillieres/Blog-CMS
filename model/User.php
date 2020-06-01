@@ -9,7 +9,7 @@ class User extends ObjectClass
     private $_id,
             $_login,
             $_password;
-            //voir si un attribut 'droit' est pertinent
+
 
     public function id()
     {
