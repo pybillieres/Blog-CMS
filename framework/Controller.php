@@ -19,7 +19,7 @@ abstract class Controller
  public function executeAction($action) {
    if (method_exists($this, $action)) {
      $this->action = $action;
-     $this->{$this->action}();//comprend pas cette ligne
+     $this->{$this->action}();
    }
    else {
      $controllerClass = get_class($this);

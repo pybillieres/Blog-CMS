@@ -5,10 +5,12 @@ namespace Pierre\P4\Framework;
 class Request {
 
     private $parameters;
+    private $session;
   
     public function __construct($parameters) 
     {
       $this->parameters = $parameters;//array_merge GET POST
+      $this->session =  new Session;
     }
   
 
@@ -16,6 +18,12 @@ class Request {
       return (isset($this->parameters[$name]) && $this->parameters[$name] != "");
     }
   
+    public function getSession()
+    {
+              var_dump($this->session);
+        return $this->session;
+
+    }
 
     public function Parameter($name) {
       if ($this->existParameter($name)) {

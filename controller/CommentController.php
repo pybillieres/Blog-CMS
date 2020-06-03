@@ -6,6 +6,11 @@ use Pierre\P4\Framework\Controller;
 
 class CommentController extends Controller
 {
+    function index()
+    {
+
+    }
+    
     function listComment($postId)
     {
         $commentManager = new CommentManager;

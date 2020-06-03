@@ -1,0 +1,38 @@
+<?php
+
+namespace Pierre\P4\Framework;
+
+class Session
+{
+
+    function createSession()
+    {
+        session_start();
+    }
+
+    function destroySession()
+    {   
+        session_destroy();
+    }
+
+    function setAttribut($name, $value)
+    {
+        $_SESSION[$name] = $value;
+    }
+
+    function existAttribut($name)
+    {
+        return (isset($_SESSION[$name]) && $_SESSION[$name] != "");
+    }
+
+
+    function getAttribut($name)
+    {
+        if ($this->existAttribut($name)) {
+            return $_SESSION[$name];
+        }
+        else {
+            throw new \Exception("Attribut '$name' absent de la session");
+        }
+    }
+}

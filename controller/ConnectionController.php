@@ -1,8 +1,11 @@
 <?php
 namespace Pierre\P4\Controller;
+
+use Pierre\P4\controller\AdminController;
 use Pierre\P4\model\View;
 use Pierre\P4\Framework\Controller;
 use Pierre\P4\Model\UserManager;
+use Pierre\P4\Framework\Session;
 
 class ConnectionController extends Controller
 {
@@ -26,11 +29,13 @@ class ConnectionController extends Controller
             $password = md5($this->request->parameter('password'));
             $userManager = new UserManager;
             $user = $userManager->getUser($login);
-            $userPassword = $user->password();
 
             if($password === $user->password())
             {
-                echo 'toto';
+                $this->request->getSession()->setAttribut('userId', $user->id());//pourquoi acceder a la session via la requete et pas directement ?
+                $this->request->getSession()->setAttribut('login', $user->login());
+                $admin = new AdminController;
+                $admin->index();
             }
             else
             {
@@ -45,7 +50,7 @@ class ConnectionController extends Controller
 
     function logout()
     {
-
+        $this->request->getSession()->destroySession();
     }
 
 
