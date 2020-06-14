@@ -29,10 +29,14 @@ abstract class Controller
 
  public function checkSession()
  {
-   var_dump("toto");
   return $this->request->getSession()->existAttribut("userId");
  }
 
  public abstract function index();
+
+ protected function redirect($controller, $action='', $id='')
+ {
+   header('location:index.php?controller='.$controller.'&action='.$action.'&id='.$id);
+ }
 
 }

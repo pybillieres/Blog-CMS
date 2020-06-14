@@ -20,14 +20,15 @@ class CommentManager extends Manager
         }
     }
     
-    public function createComment()
+    public function createComment(Comment $comment)
     {
-
-    }
-
-    public function updateComment()
-    {
-
+        $req = $this->_db->prepare('INSERT INTO comments(idPost, author, content, date) VALUES(:idPost, :author, :content, :date) ');
+        $req->execute(array (
+            ':idPost'=>$comment->idPost(), 
+            ':author'=>$comment->author(), 
+            ':content'=>$comment->content(), 
+            ':date'=>$comment->date()));
+        
     }
 
     public function deleteComment($idPost)

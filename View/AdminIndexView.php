@@ -3,6 +3,7 @@
 
 <h1>Administration</h1>
 <a href='index.php?controller=user&amp;action=changePassword'>Modifier Password</a><br/>
+<a href='index?controller=connection&amp;action=logout'>Déconnexion</a><br/>
 <a href="index.php?controller=post&amp;action=createPost">Créer nouveau Post</a>
 <?php
 foreach ($posts as $post)

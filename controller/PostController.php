@@ -25,7 +25,6 @@ function post()
     $post = $postManager->readPost($id);
     $commentController = new CommentController;
     $comments = $commentController->listComment($id);
-    var_dump($_SESSION);
     $view = new View;
     $view ->render('PostView',['post'=>$post, 'comments'=>$comments]);
 }
@@ -68,7 +67,6 @@ function sendCreate()
     else
     {
         echo 'pas de seesion';
-        var_dump($_SESSION);
     }       
 }
 
@@ -89,7 +87,6 @@ function editPost()
     else
     {
         echo 'pas de seesion';
-        var_dump($_SESSION);
     }
 }
 
@@ -103,7 +100,7 @@ function sendUpdate()
     $post= new Post($data);
     $postManager = new PostManager;
     $postManager->updatePost($post);
-    header("/index.php?controller=connection");
+    $this->redirect('connection');
 
 }
 
@@ -111,7 +108,6 @@ function deletePost()
 {
     if($this->checkSession())
     {
-        var_dump($this->request);
         $id =$this->request->Parameter('id');
         $title = $this->request->Parameter('title');
         $view = new View;
@@ -120,7 +116,6 @@ function deletePost()
     else
     {
         echo 'pas de seesion';
-        var_dump($_SESSION);
     }
 }
 
@@ -133,19 +128,17 @@ function confirmDelete()
         $commentManager = new CommentManager;
         $postManager->deletePost($id);
         $commentManager->deleteComment($id);
-        $this->adminIndex();
+        $this->redirect('connection');
 
     }
     else
     {
         echo 'pas de seesion';
-        var_dump($_SESSION);
     }
 }
 
 function adminIndex()
 {
-    var_dump($this);
     $controller = new ConnectionController;
     $controller->indexAdmin();
 }

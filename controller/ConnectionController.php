@@ -10,9 +10,14 @@ class ConnectionController extends Controller
 {
     function index()
     {
-
+        if($this->checkSession())
+        {
+            $this->indexAdmin();
+        }
+        else
+        {
             $this->connectionView();
-
+        }
     }
 
     function connectionView()//creer buildview dans la classe parente
@@ -50,9 +55,6 @@ class ConnectionController extends Controller
 
     function indexAdmin()
     {
-        var_dump($_SESSION);
-        var_dump($this);
-
         if($this->checkSession())
         {
             $postManager = new PostManager;
@@ -69,6 +71,7 @@ class ConnectionController extends Controller
     function logout()
     {
         $this->request->getSession()->destroySession();
+        $this->connectionView();
     }
 
 

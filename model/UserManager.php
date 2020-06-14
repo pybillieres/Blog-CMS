@@ -9,7 +9,6 @@ class UserManager extends Manager
             public function createUser($login, $password)
             {
                 $password = md5($password);
-                var_dump($password);
                 $req = $this->_db->prepare('INSERT TO users (login, password) VALUE (:login, :password)');
                 $req->execute(array(
                     ':login'=>$login,

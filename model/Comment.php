@@ -72,6 +72,6 @@ class Comment extends ObjectClass
 
     public function setDate($date)
     {
-
+        $this->_date = $date;
     }
 }

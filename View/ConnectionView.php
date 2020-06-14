@@ -1,6 +1,7 @@
 <?php
 $this->_title = 'toto';
 ?>
+<a href='index'>Retourner à la page d'accueil</a>
 <form method="post" action='index.php'>
     login<input type="text" name="login"><br/>
     password<input type="password" name="password">
