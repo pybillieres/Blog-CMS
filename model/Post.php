@@ -51,10 +51,9 @@ class Post extends ObjectClass
 
     public function setContent($content)
     {
-        if(is_string($content))
-        {
+
             $this->_content = $content;
-        }
+
     }
 
     public function setDate($date)

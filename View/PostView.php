@@ -2,7 +2,7 @@
 <h1>Blog</h1>
 <div>
     <h2><?= htmlspecialchars($post->Title());?></h2>
-    <p><?= htmlspecialchars($post->Content());?></p>
+    <p><?= $post->Content();?></p>
 </div>
 <br>
 <a href="index.php">Retour à l'accueil</a>
@@ -32,3 +32,27 @@
     </form>
 </div>
 
+
+<!-- TinyMCE -->
+<script type="text/javascript" src="content/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+  tinyMCE.init({
+    // type de mode
+    mode : "exact", 
+    // id ou class, des textareas appelés
+    elements : "commentaire1,commentaire2", 
+    // en mode avancé, cela permet de choisir les plugins
+    theme : "advanced", 
+    // langue
+    language : "fr", 
+    // liste des plugins
+    theme_advanced_toolbar_location : "top",
+    theme_advanced_buttons1 : "bold,italic,underline,strikethrough,sup,forecolor,separator,"
+    + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"
+    + "bullist,numlist,outdent,indent,separator,cleanup,|,undo,redo,|,",
+    theme_advanced_buttons2 : "",
+    theme_advanced_buttons3 : "",
+    height:"250px",
+    width:"600px"
+  });
+</script>

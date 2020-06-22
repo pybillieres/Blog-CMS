@@ -53,6 +53,8 @@ function createPost()
 
 function sendCreate()
 {
+    var_dump($_GET);
+    var_dump($_POST);
     if($this->checkSession())
     {
         $title=$this->request->Parameter('title');
@@ -62,12 +64,12 @@ function sendCreate()
         $post= new Post($data);
         $postManager = new PostManager;
         $postManager->CreatePost($post); 
-        $this->adminIndex();
+        $this->redirect('connection');
     }
     else
     {
         echo 'pas de seesion';
-    }       
+    }
 }
 
 function editPost()

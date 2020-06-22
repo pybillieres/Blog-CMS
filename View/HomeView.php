@@ -9,7 +9,7 @@ foreach ($posts as $post)
     ?>
     <div>
         <h2><a href="index.php?controller=post&amp;action=post&amp;id=<?=($post->id())?>"><?= htmlspecialchars($post->Title());?></a></h2>
-        <p><?= htmlspecialchars($post->Content());?></p>
+        <p><?= ($post->Content());?></p>
     </div>
     <br>
     <?php
