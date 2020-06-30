@@ -1,58 +1,33 @@
 <?php $this->_title = $post->title(); ?>
-<h1>Blog</h1>
 <div>
-    <h2><?= htmlspecialchars($post->Title());?></h2>
-    <p><?= $post->Content();?></p>
+    <h2><?= htmlspecialchars($post->Title()); ?></h2>
+    <p><?= $post->Content(); ?></p>
 </div>
 <br>
-<a href="index.php">Retour à l'accueil</a>
-<div id="comments" class="text-left" style="margin-left: 50px">
-    <h3>Commentaires</h3>
+<a href='index.php' class="btn btn-primary">Retourner à la page d'accueil</a>
+<div id="comments">
+    <h3 class="text-center">Commentaires</h3>
     <?php
-    if(empty($comments) != TRUE){
-        foreach ($comments as $comment)
-        {
-            ?>
-            <h4><?= htmlspecialchars($comment->author());?></h4>
-            <p><?= htmlspecialchars($comment->content());?></p>
-            <?php
+    if (empty($comments) != TRUE) {
+        foreach ($comments as $comment) {
+    ?>
+            <h4><?= htmlspecialchars($comment->author()); ?></h4>
+            <p><?= htmlspecialchars($comment->content()); ?><br />
+                <a href="index.php?controller=comment&amp;action=reportComment&amp;id=<?= ($comment->id()) ?>">signaler le commentaire</a>
+            </p>
+
+    <?php
         }
     }
     ?>
-    <br/>
-    <p>Ecrire un commentaire : </p>
-    <form method=post action='index.php'>
-        <label for="author">Votre pseudo</label>
-        <input type="text" name='author'>
-        <textarea name="content" rows="10" cols="200"></textarea>
-        <input type='hidden' name='idPost' value=<?=$post->id()?>>
-        <input type="hidden" name='action' value='createComment' > 
+    <form method=post action='index.php' class="mt-5 col-lg-6 formLogin text-center">
+        <label for="author" class="mt-2">Votre pseudo</label>
+        <input type="text" name='author' id="author" class="form-control col-lg-12">
+        <label for="content" class="mt-2">Votre commentaire</label>
+        <textarea name="content" rows="5" id="content" class="form-control col-lg-12"></textarea>
+        <input type='hidden' name='idPost' value=<?= $post->id() ?>>
+        <input type="hidden" name='action' value='createComment'>
         <input type="hidden" name='controller' value='comment'>
-        <input type="submit" value="envoyer commentaire">
+        <input type="submit" value="envoyer commentaire" class="mt-3 mb-5 btn btn-primary">
     </form>
 </div>
-
-
-<!-- TinyMCE -->
-<script type="text/javascript" src="content/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript">
-  tinyMCE.init({
-    // type de mode
-    mode : "exact", 
-    // id ou class, des textareas appelés
-    elements : "commentaire1,commentaire2", 
-    // en mode avancé, cela permet de choisir les plugins
-    theme : "advanced", 
-    // langue
-    language : "fr", 
-    // liste des plugins
-    theme_advanced_toolbar_location : "top",
-    theme_advanced_buttons1 : "bold,italic,underline,strikethrough,sup,forecolor,separator,"
-    + "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"
-    + "bullist,numlist,outdent,indent,separator,cleanup,|,undo,redo,|,",
-    theme_advanced_buttons2 : "",
-    theme_advanced_buttons3 : "",
-    height:"250px",
-    width:"600px"
-  });
-</script>

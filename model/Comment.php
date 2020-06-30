@@ -9,7 +9,8 @@ class Comment extends ObjectClass
             $_idPost,
             $_author,
             $_content,
-            $_date;
+            $_date,
+            $_reported;
 
     public function id()
     {
@@ -34,6 +35,11 @@ class Comment extends ObjectClass
     public function date()
     {
         return $this->_date;
+    }
+
+    public function reported()
+    {
+        return $this->_reported;
     }
 
     public function setId($id)
@@ -73,5 +79,10 @@ class Comment extends ObjectClass
     public function setDate($date)
     {
         $this->_date = $date;
+    }
+
+    public function setReported($reported)
+    {
+            $this->_reported = $reported;
     }
 }
