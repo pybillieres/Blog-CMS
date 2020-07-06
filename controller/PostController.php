@@ -1,13 +1,13 @@
 <?php
 
-namespace Pierre\P4\controller;
-use Pierre\P4\controller\CommentController;
+namespace Pierre\P4\Controller;
+use Pierre\P4\Controller\CommentController;
 use Pierre\P4\Controller\ConnectionController;
 use Pierre\P4\Framework\Controller;
 use Pierre\P4\Model\CommentManager;
 use Pierre\P4\Model\Post;
-use Pierre\P4\model\PostManager;
-use Pierre\P4\model\View;
+use Pierre\P4\Model\PostManager;
+use Pierre\P4\Model\View;
 
 
 Class PostController extends Controller

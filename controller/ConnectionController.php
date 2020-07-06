@@ -1,7 +1,7 @@
 <?php
 namespace Pierre\P4\Controller;
 
-use Pierre\P4\model\View;
+use Pierre\P4\Model\View;
 use Pierre\P4\Framework\Controller;
 use Pierre\P4\Model\UserManager;
 use Pierre\P4\Model\PostManager;

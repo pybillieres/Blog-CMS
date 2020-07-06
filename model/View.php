@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\P4\model;
+namespace Pierre\P4\Model;
 
 class View
 {
@@ -9,9 +9,9 @@ class View
 
     public function render($template, $data = [])
     {
-        $this->file = "view/" . $template . ".php"; // Attribut file prend la valeur du template de page POURQUOI PAS BESOIN DE ../ ?
+        $this->file = "View/" . $template . ".php"; // Attribut file prend la valeur du template de page POURQUOI PAS BESOIN DE ../ ?
         $content = $this->renderFile($this->file, $data);
-        $view = $this->renderFile('view/template.php', [
+        $view = $this->renderFile('View/Template.php', [
             'title'=>$this->_title,
             'content'=>$content
             ]);

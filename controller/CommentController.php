@@ -1,6 +1,6 @@
 <?php
 
-namespace Pierre\P4\controller;
+namespace Pierre\P4\Controller;
 
 use Pierre\P4\Model\CommentManager;
 use Pierre\P4\Framework\Controller;
@@ -41,6 +41,7 @@ class CommentController extends Controller
         $comment = $commentManager->readCommentById($id);
         $comment->setReported(1);
         $commentManager->updateComment($comment);
+        echo 'toto';
         $view = new View;
         $view->render('ReportCommentView', ['comment' => $comment]);
     }

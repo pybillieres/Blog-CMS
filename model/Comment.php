@@ -83,6 +83,8 @@ class Comment extends ObjectClass
 
     public function setReported($reported)
     {
-            $this->_reported = $reported;
+
+            $this->_reported = $reported;            
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Pierre\P4\Framework;
 use Pierre\P4\Framework\Request;
-use Pierre\P4\model\View;
+use Pierre\P4\Model\View;
 
 abstract class Controller
 {
@@ -36,6 +36,8 @@ abstract class Controller
 
  protected function redirect($controller, $action='', $id='')
  {
+  echo 'toto';
+  var_dump($this);
    header('location:index.php?controller='.$controller.'&action='.$action.'&id='.$id);
  }
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace Pierre\P4\Model;
-use Pierre\P4\framework\Manager;
+use Pierre\P4\Framework\Manager;
 
 class PostManager extends Manager
 {

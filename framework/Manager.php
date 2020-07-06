@@ -14,7 +14,8 @@ abstract class Manager
     {
         try
         {
-        $db = new \PDO('mysql:host=localhost;dbname=projet4;charset=utf8', 'root', '');//mettre ca ailleur (ou ?)en mettant le try/catch
+
+        $db = new \PDO('mysql:host=db5000597044.hosting-data.io;dbname=dbs576180;charset=utf8;port=3306', 'dbu986463', 'nimier85SP/');
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $this->_db = $db;
         }
